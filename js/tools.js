@@ -8,6 +8,7 @@ $(document).ready(function() {
         }
     });
 
+    var startIndex = Math.round($('.reviews-authors-item').length / 2);
     $('.reviews-authors-item:first').addClass('active');
     $('.reviews-authors-list').slick({
         dots: false,
@@ -15,7 +16,8 @@ $(document).ready(function() {
         slidesToShow: 1,
         centerMode: true,
         variableWidth: true,
-        arrows: false
+        arrows: false,
+        initialSlide: startIndex
     });
 
     $('.reviews-authors-item a').click(function(e) {
@@ -39,7 +41,8 @@ $(document).ready(function() {
         adaptiveHeight: true,
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
-        asNavFor: '.reviews-authors-list'
+        asNavFor: '.reviews-authors-list',
+        initialSlide: startIndex
     }).on('setPosition', function(event, slick) {
         var curIndex = $('.reviews-list').slick('slickCurrentSlide');
         $('.reviews-authors-item.active').removeClass('active');

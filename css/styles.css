@@ -21,8 +21,9 @@ nav {float:left; margin:40px 0 0 0; font-size:17px; line-height:27px}
 nav ul {margin:0; padding:0; list-style:none}
 nav ul li {float:left; margin:0 0 0 30px; padding:0}
 nav ul li:first-child {margin:0}
-nav ul li a {text-decoration:none}
+nav ul li a {text-decoration:none; transition:all .3s}
 nav ul li.nav-contest a {float:left; border:1px solid #008859; margin:-1px -14px -1px -14px; padding:0 13px}
+nav ul li a:hover {opacity:.8}
 
 .welcome {border-bottom:1px solid #ededed; background:url(../images/welcome.jpg) no-repeat center bottom}
 .welcome-text {float:right; width:470px; padding:83px 0 0 0}
@@ -47,8 +48,10 @@ nav ul li.nav-contest a {float:left; border:1px solid #008859; margin:-1px -14px
 .contest-preview {width:1120px; height:721px; margin:52px auto 0 auto; background:url(../images/contest.jpg)}
 .contest-links {width:570px; margin:0 auto; padding:42px 0 0 0}
 .contest-links::after {content:""; display:block; clear:both}
-.contest-link-rules {float:left; width:266px; height:56px; border:2px solid #008859; text-align:center; font-weight:bold; font-size:12px; line-height:58px; text-transform:uppercase; color:#008859; text-decoration:none; letter-spacing:1px}
-.contest-link-start {float:right; width:266px; height:56px; border:2px solid #008859; background:#008859; text-align:center; font-weight:bold; font-size:12px; line-height:58px; text-transform:uppercase; color:#fff; text-decoration:none; letter-spacing:1px}
+.contest-link-rules {float:left; width:266px; height:56px; border:2px solid #008859; text-align:center; font-weight:bold; font-size:12px; line-height:58px; text-transform:uppercase; color:#008859; text-decoration:none; letter-spacing:1px; transition:all .3s}
+.contest-link-rules:hover {opacity:.8}
+.contest-link-start {float:right; width:266px; height:56px; border:2px solid #008859; background:#008859; text-align:center; font-weight:bold; font-size:12px; line-height:58px; text-transform:uppercase; color:#fff; text-decoration:none; letter-spacing:1px; transition:all .3s}
+.contest-link-start:hover {opacity:.8}
 
 .reviews {padding:112px 0 113px 0; position:relative}
 .reviews::before {content:""; display:block; width:221px; height:186px; position:absolute; left:50%; top:-38px; margin-left:110px; background:url(../images/reviews.png)}
