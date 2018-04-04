@@ -1,0 +1,139 @@
+@font-face {font-family:"MyriadPro"; src:url("../fonts/MyriadPro-Regular.woff") format("woff"); font-weight:normal; font-style:normal}
+@font-face {font-family:"MyriadPro"; src:url("../fonts/MyriadPro-Bold.woff") format("woff"); font-weight:bold; font-style:normal}
+
+* {outline:none}
+
+html {min-width:480px}
+
+body {min-width:480px; margin:0; padding:0; font:16px/25px MyriadPro, sans-serif; color:#505354; background:#fff; -webkit-text-size-adjust:100%}
+
+a {color:#505354}
+a:hover {text-decoration:none}
+
+img {border:none; max-width:100%}
+
+.container {padding:0 15px; max-width:1170px; margin:0 auto}
+.container::after {content:""; display:block; clear:both}
+
+.logo {float:right; width:225px; height:105px; background:url(../images/logo.png)}
+
+nav {float:left; margin:40px 0 0 0; font-size:17px; line-height:27px}
+nav ul {margin:0; padding:0; list-style:none}
+nav ul li {float:left; margin:0 0 0 30px; padding:0}
+nav ul li:first-child {margin:0}
+nav ul li a {text-decoration:none}
+nav ul li.nav-contest a {float:left; border:1px solid #008859; margin:-1px -14px -1px -14px; padding:0 13px}
+
+.welcome {border-bottom:1px solid #ededed; background:url(../images/welcome.jpg) no-repeat center bottom}
+.welcome-text {float:right; width:470px; padding:83px 0 0 0}
+.welcome-text-1 {font-weight:bold; font-size:70px; line-height:70px; color:#b81817}
+.welcome-text-1-notice {font-size:20px; vertical-align:top; display:inline-block; margin-top:-25px}
+.welcome-text-2 {font-weight:bold; font-size:40px; line-height:40px; color:#b81817; padding:12px 0 0 0}
+.welcome-text-3 {font-size:20px; line-height:30px; padding:30px 0 0 0}
+.welcome-props {padding:5px 0 0 0}
+.welcome-props::after {content:""; display:block; clear:both}
+.welcome-prop {float:left; width:214px; padding:30px 0 0 0}
+.welcome-prop:nth-child(even) {float:right}
+.welcome-prop-icon {float:left; line-height:0}
+.welcome-prop-text {margin:0 0 0 65px}
+.welcome-prop-title {font-weight:bold; font-size:16px; line-height:20px; color:#878786; padding:7px 0 0 0}
+.welcome-prop-descr {font-size:12px; line-height:20px; color:#878786; padding:1px 0 0 0}
+.welcome-notice {color:#878786; font-size:12px; padding:62px 0 37px 0}
+.welcome-notice-icon {color:#b81817}
+
+.contest {border-bottom:1px solid #ededed; padding:105px 0 119px 0}
+.contest-title {text-align:center; font-weight:bold; font-size:56px; line-height:80px; color:#363636}
+.contest-text {text-align:center; font-size:20px; line-height:30px; color:#000; padding:49px 0 0 0}
+.contest-preview {width:1120px; height:721px; margin:52px auto 0 auto; background:url(../images/contest.jpg)}
+.contest-links {width:570px; margin:0 auto; padding:42px 0 0 0}
+.contest-links::after {content:""; display:block; clear:both}
+.contest-link-rules {float:left; width:266px; height:56px; border:2px solid #008859; text-align:center; font-weight:bold; font-size:12px; line-height:58px; text-transform:uppercase; color:#008859; text-decoration:none; letter-spacing:1px}
+.contest-link-start {float:right; width:266px; height:56px; border:2px solid #008859; background:#008859; text-align:center; font-weight:bold; font-size:12px; line-height:58px; text-transform:uppercase; color:#fff; text-decoration:none; letter-spacing:1px}
+
+.reviews {padding:112px 0 113px 0; position:relative}
+.reviews::before {content:""; display:block; width:221px; height:186px; position:absolute; left:50%; top:-38px; margin-left:110px; background:url(../images/reviews.png)}
+.reviews-title {text-align:center; font-weight:bold; font-size:32px; line-height:40px; color:#363636}
+.reviews-authors {font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:55px 0 0 0}
+.reviews-authors-list {position:relative; width:100%; overflow:hidden}
+.reviews-authors-item {display:inline-block; vertical-align:top; padding:15px 0}
+.reviews-authors-item a {display:block; margin:0 3px; padding:15px 22px; text-decoration:none; color:#262626; text-decoration:none; opacity:.25}
+.reviews-authors-item a::after {content:""; display:block; clear:both}
+.reviews-authors-item a:hover {opacity:1}
+.reviews-authors-item.active a {opacity:1; background:#fff; box-shadow:0 5px 15px rgba(73, 73, 73, .12); position:relative; cursor:default}
+.reviews-authors-item.active a::before {content:""; display:block; width:0; height:0; border-top:7px solid #fff; border-left:7px solid transparent; border-right:7px solid transparent; position:absolute; left:50%; bottom:-7px; margin-left:-7px}
+.reviews-authors-item-photo {float:left; width:40px}
+.reviews-authors-item-photo img {display:block; width:100%; border-radius:50%}
+.reviews-authors-item-title {float:left; font-size:16px; line-height:40px; letter-spacing:0; padding:0 0 0 12px}
+
+.reviews-list {position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:53px 0 0 0}
+.reviews-item {display:inline-block; vertical-align:top; width:100%}
+.reviews-item-inner {width:970px; margin:0 auto; display:table}
+.reviews-item-photo {display:table-cell; vertical-align:middle; width:539px}
+.reviews-item-photo-inner {position:relative; width:539px; height:747px}
+.reviews-item-photo-inner::after {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:url(../images/reviews-item-photo.png)}
+.reviews-item-photo-img {position:relative; left:189px; top:21px; width:332px; height:688px; background:no-repeat center; background-size:cover}
+.reviews-item-text {display:table-cell; vertical-align:middle; padding:0 0 0 63px; font-size:16px; line-height:24px; letter-spacing:0; white-space:normal}
+.slick-slide .reviews-item-text img {display:inline-block}
+.reviews-item-text-descr {position:relative}
+.reviews-item-text-descr::before {content:"“"; position:absolute; left:-35px; top:-10px; font-size:72px; line-height:72px; color:#ededed}
+.reviews-item-text-descr::after {content:"”"; position:absolute; right:-30px; bottom:-54px; font-size:72px; line-height:72px; color:#ededed}
+.reviews-item-text-descr a {text-decoration:none; color:#008859}
+.reviews-item-text-descr a:hover {text-decoration:underline}
+.reviews-item-text-author-name {font-size:25px; line-height:25px; color:#363636; padding:58px 0 0 0}
+.reviews-item-text-author-post {font-size:16px; line-height:25px; color:#363636; padding:3px 0 0 0}
+.reviews-list .slick-prev,
+.reviews-list .slick-next {display:block; position:absolute; z-index:2; top:50%; width:21px; height:39px; border:none; border-radius:0; margin:-20px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:url(../images/reviews-arrows.png)}
+.reviews-list .slick-prev {left:0}
+.reviews-list .slick-next {right:0; background-position:-22px top}
+.reviews-list .slick-prev.slick-disabled {display:none !important}
+.reviews-list .slick-next.slick-disabled {display:none !important}
+
+.video {position:relative; background:url(../images/video.jpg) no-repeat center; background-size:cover; height:720px}
+.video-play {display:block; position:relative; color:#fff; text-decoration:none; text-align:center; font-weight:bold; font-size:32px; line-height:40px; height:720px; box-sizing:border-box; padding:309px 0 0 0}
+.video.play .video-play {display:none}
+.video-play::before {content:""; display:block; width:102px; height:102px; background:rgba(0, 0, 0, .5) url(../images/video-play.png) no-repeat 42px center; border-radius:50%; margin:0 auto 81px auto}
+.video-play:hover::before {background-color:rgba(0, 0, 0, .75)}
+.video iframe {display:none; position:absolute; left:0; top:0; width:100%; height:100%}
+.video.play iframe {display:block}
+
+.gifts {background:#fafafa; position:relative; margin:0 0 -1px 0; padding:112px 0 0 0}
+.gifts-title {text-align:center; font-weight:bold; font-size:32px; line-height:40px; color:#363636}
+
+.timer {text-align:center; font-size:0; line-height:0; letter-spacing:-1px; padding:74px 0 83px 0}
+.timer-item {display:inline-block; vertical-align:top; width:170px; padding:0 0 0 30px}
+.timer-item:first-child {padding:0}
+.timer-item-value {font-size:100px; line-height:100px; color:#363636; letter-spacing:0}
+.timer-item-name {font-size:16px; line-height:25px; letter-spacing:0; border-top:1px solid #cfd0d0; margin:-4px 0 0 0; padding:11px 0 0 0}
+
+.gifts-photo {line-height:0; text-align:center}
+
+footer {border-top:1px solid #dadada; padding:0 0 58px 0}
+
+.footer-logo {float:left; width:154px; height:25px; margin:60px 0 0 0; background:url(../images/footer-logo.png)}
+.footer-links {float:left; margin:40px 0 0 247px; font-size:14px; line-height:20px}
+.footer-links p {margin:0; padding:20px 0 0 0}
+.footer-social {float:right; margin:59px 0 0 0}
+.footer-social a {float:left; width:43px; height:42px; background:url(../images/footer-social.png); margin:0 0 0 8px}
+.footer-social a.footer-social-vk {background-position:left top}
+.footer-social a.footer-social-ig {background-position:-44px top}
+.footer-social a.footer-social-yt {background-position:-88px top}
+.footer-social a.footer-social-fb {background-position:-132px top}
+.footer-copyrights {float:right; clear:right; font-size:14px; padding:16px 0 0 0}
+
+.up-link {display:none; position:fixed; right:49px; bottom:49px; text-decoration:none; color:#159267; font-weight:bold; font-size:10px; text-transform:uppercase}
+.up-link.visible {display:block}
+.up-link::before {content:""; display:block; width:11px; height:7px; margin:0 auto 5px auto; background:url(../images/up-link.png)}
+
+.rules {padding:87px 0 63px 0}
+.rules h1 {margin:0 0 90px 0; padding:0; font-weight:bold; font-size:32px; line-height:40px; color:#363636}
+.rules ol {margin:0; padding:0; list-style:none; counter-reset:point; font-weight:bold; font-size:24px; line-height:25px; color:#363636}
+.rules ol li {margin:0; padding:0 0 0 50px; position:relative}
+.rules ol li::before {content:counter(point)'.'; counter-increment:point 1; position:absolute; left:0; top:0}
+.rules ol ol {font-size:16px; font-weight:normal; color:#505354; counter-reset:subpoint; margin:37px 0 53px -50px}
+.rules ol ol li {margin:25px 0}
+.rules ol ol li::before {content:counter(point)'.'counter(subpoint); counter-increment:subpoint 1}
+.rules ol ol ol {margin:25px 0; counter-reset:subsubpoint}
+.rules ol ol ol li {padding:0 0 0 60px}
+.rules ol ol ol li::before {content:counter(point)'.'counter(subpoint)'.'counter(subsubpoint); counter-increment:subsubpoint 1}
+.rules a {color:#008859; text-decoration:none}
+.rules a:hover {text-decoration:underline}
