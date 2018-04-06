@@ -99,6 +99,10 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.contest-menu-back-from-photo').click(function() {
+        $('.contest-list').removeClass('contest-step-photo').addClass('contest-step-theme');
+    });
+
 });
 
 function updateTimer() {

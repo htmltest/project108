@@ -64,6 +64,7 @@ nav ul li a:hover {opacity:.8}
 .contest-menu {text-align:center; font-size:14px; padding:72px 0 0 0}
 .contest-menu span {color:#505354; opacity:.5}
 .contest-menu span.active {opacity:1}
+.contest-menu span.back {cursor:pointer}
 .contest-menu img {vertical-align:middle; margin:0 17px}
 
 .contest-auth {width:359px; height:740px; position:relative; background:url(../images/contest-auth.png); margin:117px auto 0 auto}
@@ -101,8 +102,12 @@ nav ul li a:hover {opacity:.8}
 .contest-theme-item-next-theme {display:inline-block; vertical-align:middle; font-size:40px}
 .contest-theme-item-next-text {position:absolute; right:42px; top:0; padding:0 43px 0 0; font-size:14px; font-weight:bold; text-transform:uppercase; background:url(../images/contest-theme-item-next.png) no-repeat right center}
 
-.contest-photo {width:686px; height:1155px; background:url(../images/contest-photo.png); margin:0 auto}
-.contest-photo-border {width:580px; height:580px; background:no-repeat center; background-size:cover}
+.contest-photo {width:686px; height:945px; background:url(../images/contest-photo.png); margin:33px auto 0 auto; position:relative}
+.contest-photo-border {width:580px; height:580px; background:no-repeat center; background-size:cover; position:absolute; top:91px; left:50%; margin-left:-290px}
+.contest-photo-links {padding:270px 0 0 189px}
+.contest-photo-upload {float:left; position:relative; overflow:hidden; width:148px; height:148px; border:1px dashed #dedede; background:url(../images/contest-photo-upload.png) no-repeat center; cursor:pointer}
+.contest-photo-upload input {height:200px; position:absolute; top:0; right:0; opacity:0; cursor:pointer; font-size:200px; background:url(../images/blank.gif); -webkit-appearance:none}
+.contest-photo-camera {float:left; position:relative; overflow:hidden; width:148px; height:148px; border:1px dashed #dedede; background:url(../images/contest-photo-camera.png) no-repeat center; margin:0 0 0 20px; cursor:pointer}
 
 .reviews {padding:112px 0 113px 0; position:relative}
 .reviews::before {content:""; display:block; width:221px; height:186px; position:absolute; left:50%; top:-38px; margin-left:110px; background:url(../images/reviews.png)}
