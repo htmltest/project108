@@ -75,6 +75,30 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.contest-theme-item').click(function(e) {
+        var curItem = $(this);
+        if (!curItem.hasClass('active')) {
+            $('.contest-theme-item.active').removeClass('active');
+            curItem.addClass('active');
+            $('.contest-theme-item-next').addClass('active');
+            $('.contest-theme-item-next-icon img').attr('src', 'images/contest-theme-' + curItem.data('id') + '-icon-active.png');
+            $('.contest-theme-item-next-theme').html(curItem.find('.contest-theme-item-title').html());
+            $('.contest-photo-border').css({'background-image': 'url(images/contest-photo-border-' + curItem.data('id') + '.png)'});
+        } else {
+            curItem.removeClass('active');
+            $('.contest-theme-item-next-icon img').attr('src', 'images/blank.gif');
+            $('.contest-theme-item-next-theme').html('');
+            $('.contest-theme-item-next').removeClass('active');
+        }
+    });
+
+    $('.contest-theme-item-next').click(function(e) {
+        if ($(this).hasClass('active')) {
+            $('.contest-list').removeClass('contest-step-theme').addClass('contest-step-photo');
+        }
+        e.preventDefault();
+    });
+
 });
 
 function updateTimer() {
