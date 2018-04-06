@@ -65,6 +65,16 @@ $(document).ready(function() {
 
     updateTimer();
 
+    $('.contest-link-start').click(function(e) {
+        $('.contest-list').addClass('contest-step-auth');
+        e.preventDefault();
+    });
+
+    $('.contest-auth-link').click(function(e) {
+        $('.contest-list').removeClass('contest-step-auth').addClass('contest-step-theme');
+        e.preventDefault();
+    });
+
 });
 
 function updateTimer() {
