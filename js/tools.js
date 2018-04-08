@@ -71,6 +71,7 @@ $(document).ready(function() {
     });
 
     $('.contest-auth-link').click(function(e) {
+        // auth to vk
         $('.contest-list').removeClass('contest-step-auth').addClass('contest-step-theme');
         e.preventDefault();
     });
@@ -83,7 +84,16 @@ $(document).ready(function() {
             $('.contest-theme-item-next').addClass('active');
             $('.contest-theme-item-next-icon img').attr('src', 'images/contest-theme-' + curItem.data('id') + '-icon-active.png');
             $('.contest-theme-item-next-theme').html(curItem.find('.contest-theme-item-title').html());
-            $('.contest-photo-border').css({'background-image': 'url(images/contest-photo-border-' + curItem.data('id') + '.png)'});
+            $('.contest-text-textarea textarea').attr('placeholder', curItem.data('placeholder'));
+            var canvas = document.getElementById('photo-editor');
+            var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            var img = new Image();
+            img.onload = function() {
+                context.drawImage(img, 0, 0, 580, 580);
+            };
+            img.src = curItem.data('border');
+            $('.contest-photo-upload-field input').val(null);
         } else {
             curItem.removeClass('active');
             $('.contest-theme-item-next-icon img').attr('src', 'images/blank.gif');
@@ -95,12 +105,160 @@ $(document).ready(function() {
     $('.contest-theme-item-next').click(function(e) {
         if ($(this).hasClass('active')) {
             $('.contest-list').removeClass('contest-step-theme').addClass('contest-step-photo');
+            $('.contest-photo').removeClass('active');
         }
         e.preventDefault();
     });
 
     $('.contest-menu-back-from-photo').click(function() {
         $('.contest-list').removeClass('contest-step-photo').addClass('contest-step-theme');
+    });
+
+    $('.contest-photo-upload-field input').on('change', function(e) {
+        var file = this.files[0];
+        var reader = new FileReader;
+        reader.onload = function(event) {
+            if (file.type.match("image.*")) {
+                var dataUri = event.target.result;
+                var canvas = document.getElementById('photo-editor');
+                var context = canvas.getContext('2d');
+                var img = new Image();
+                img.onload = function() {
+                    var curTheme = $('.contest-theme-item.active');
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    var imgTheme = new Image();
+                    imgTheme.onload = function() {
+                        var imgWidth  = img.width;
+                        var imgHeight = img.height;
+                        var newWidth  = 580;
+                        var newHeight = 580;
+                        var newX = 0;
+                        var newY = 0;
+                        if (imgWidth > imgHeight) {
+                            var diffHeight = newHeight / imgHeight;
+                            newWidth = imgWidth * diffHeight;
+                            newX = -(newWidth - 580) / 2;
+                        } else {
+                            var diffWidth = newWidth / imgWidth;
+                            newHeight = imgHeight * diffWidth;
+                            newY = -(newHeight - 580) / 2;
+                        }
+                        context.drawImage(img, newX, newY, newWidth, newHeight);
+
+                        context.drawImage(imgTheme, 0, 0, 580, 580);
+                        $('.contest-photo').addClass('active');
+                    };
+                    imgTheme.src = curTheme.data('border');
+                };
+                img.src = dataUri;
+            }
+        }
+        reader.readAsDataURL(file);
+    });
+
+    $('.contest-photo-reload').click(function(e) {
+        var canvas = document.getElementById('photo-editor');
+        var context = canvas.getContext('2d');
+        var curTheme = $('.contest-theme-item.active');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        var imgTheme = new Image();
+        imgTheme.onload = function() {
+            context.drawImage(imgTheme, 0, 0, 580, 580);
+            $('.contest-photo-upload-field input').val(null);
+            $('.contest-photo').removeClass('active');
+        };
+        imgTheme.src = curTheme.data('border');
+        e.preventDefault();
+    });
+
+    $('.contest-photo-item-next').click(function(e) {
+        if ($('.contest-photo').hasClass('active')) {
+            var canvas = document.getElementById('photo-editor');
+            var img = $('.contest-text-photo img');
+            img.attr('src', canvas.toDataURL('image/jpeg'));
+            $('.contest-list').removeClass('contest-step-photo').addClass('contest-step-text');
+        }
+        e.preventDefault();
+    });
+
+    $('.contest-menu-back-from-text').click(function() {
+        $('.contest-list').removeClass('contest-step-text').addClass('contest-step-photo');
+    });
+
+    $('.contest-text-textarea textarea').keyup(function() {
+        if ($(this).val() != '') {
+            $('.contest-text-next').addClass('active');
+        } else {
+            $('.contest-text-next').removeClass('active');
+        }
+    });
+
+    $('.contest-text-next').click(function(e) {
+        $('.contest-list').removeClass('contest-step-text').addClass('contest-step-share');
+        e.preventDefault();
+        // data to vk
+        var curThemeID = $('.contest-theme-item.active').data('id');
+        var curThemeTitle = $('.contest-theme-item.active').find('.contest-theme-item-title').html();
+        var curImg = $('.contest-text-photo img').attr('src');
+        var curText = $('.contest-text-textarea textarea').val();
+    });
+
+    $('.contest-photo-camera-field').click(function() {
+        $('.contest-photo').addClass('camera');
+        window.navigator = window.navigator || {};
+         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || null;
+        if (navigator.getUserMedia !== null) {
+            var createSrc = window.URL ? window.URL.createObjectURL : function(stream) { return stream; };
+            navigator.getUserMedia(
+                {
+                    audio: false,
+                    video: true
+                },
+                function(stream) {
+                    var video = document.getElementById('camera-stream');
+                    video.src = createSrc(stream);
+                    video.play();
+                },
+                function(err){
+                    alert('Ошибка: ' + err.name, err);
+                    $('.contest-photo').removeClass('camera');
+                }
+            );
+        } else {
+            $('.contest-photo').removeClass('camera');
+        }
+    });
+
+    $('.contest-camera-btn').click(function(e) {
+        var video = document.getElementById('camera-stream');
+        video.pause();
+        var canvas = document.getElementById('photo-editor');
+        var context = canvas.getContext('2d');
+        var curTheme = $('.contest-theme-item.active');
+        var imgTheme = new Image();
+        imgTheme.onload = function() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            var imgWidth  = video.videoWidth;
+            var imgHeight = video.videoHeight;
+            var newWidth  = 580;
+            var newHeight = 580;
+            var newX = 0;
+            var newY = 0;
+            if (imgWidth > imgHeight) {
+                var diffHeight = newHeight / imgHeight;
+                newWidth = imgWidth * diffHeight;
+                newX = -(newWidth - 580) / 2;
+            } else {
+                var diffWidth = newWidth / imgWidth;
+                newHeight = imgHeight * diffWidth;
+                newY = -(newHeight - 580) / 2;
+            }
+            context.drawImage(video, newX, newY, newWidth, newHeight);
+            context.drawImage(imgTheme, 0, 0, 580, 580);
+            $('.contest-photo').addClass('active').removeClass('camera');
+        }
+        imgTheme.src = curTheme.data('border');
+        e.preventDefault();
     });
 
 });
