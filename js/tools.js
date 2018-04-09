@@ -1,9 +1,15 @@
 $(document).ready(function() {
 
+    $('.nav-mobile-link').click(function(e) {
+        $('html').toggleClass('nav-mobile-open');
+        e.preventDefault();
+    });
+
     $('body').on('click', 'nav a, .up-link', function(e) {
         var curItem = $($(this).attr('href'));
         if (curItem.length > 0) {
             $.scrollTo(curItem, {duration: 500});
+            $('html').removeClass('nav-mobile-open');
             e.preventDefault();
         }
     });
@@ -42,7 +48,15 @@ $(document).ready(function() {
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
         asNavFor: '.reviews-authors-list',
-        initialSlide: startIndex
+        initialSlide: startIndex,
+        responsive: [
+            {
+                breakpoint: 1199,
+                settings: {
+                    arrows: false
+                }
+            }
+        ]
     }).on('setPosition', function(event, slick) {
         var curIndex = $('.reviews-list').slick('slickCurrentSlide');
         $('.reviews-authors-item.active').removeClass('active');
@@ -85,6 +99,7 @@ $(document).ready(function() {
             $('.contest-theme-item-next-icon img').attr('src', 'images/contest-theme-' + curItem.data('id') + '-icon-active.png');
             $('.contest-theme-item-next-theme').html(curItem.find('.contest-theme-item-title').html());
             $('.contest-text-textarea textarea').attr('placeholder', curItem.data('placeholder'));
+            $('.contest-text-header-theme').html(curItem.find('.contest-theme-item-title').html());
             var canvas = document.getElementById('photo-editor');
             var context = canvas.getContext('2d');
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -260,6 +275,8 @@ $(document).ready(function() {
         imgTheme.src = curTheme.data('border');
         e.preventDefault();
     });
+
+    $('.contest-theme-list').jScrollPane({autoReinitialise: true});
 
 });
 

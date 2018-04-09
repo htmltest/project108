@@ -6,11 +6,14 @@
 
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/slick/slick.css" />
+        <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
         <script src="js/current-device.min.js"></script>
+        <script src="js/jscrollpane/jquery.mousewheel.js"></script>
+        <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -23,8 +26,9 @@
 
             <header id="start">
                 <div class="container">
-                    <div class="logo"><a href="http://www.oppo.com/ru/" target="_blank"></a></div>
+                    <div class="logo"><a href="http://www.oppo.com/ru/index.html?utm_source=hellocampaign&utm_medium=button" target="_blank"></a></div>
 
+                    <a href="#" class="nav-mobile-link"></a>
                     <nav>
                         <ul>
                             <li><a href="#start">Начало</a></li>
@@ -43,6 +47,7 @@
                     <div class="welcome-text">
                         <div class="welcome-text-1">Привет, AI<span class="welcome-text-1-notice">*</span> 2.0!</div>
                         <div class="welcome-text-2">OPPO F7 уже близко</div>
+                        <div class="welcome-mobile-photo"><img src="images/welcome-mobile.jpg" alt="" /></div>
                         <div class="welcome-text-3">Совсем скоро в России появится новый классный смартфон! Участвуй в нашем конкурсе и получи шанс выиграть его и подарки от Егора Крида!</div>
                         <div class="welcome-props">
                             <div class="welcome-prop">
@@ -82,7 +87,7 @@
 
             <!-- contest -->
             <div class="contest" id="contest">
-                <div class="contest-title">Получи возможность<br /> выиграть смартфон OPPO F7</div>
+                <div class="contest-title">Получи возможность<br /> выиграть смартфон OPPO&nbsp;F7</div>
                 <!-- contest list -->
                 <div class="contest-list">
                     <div class="contest-list-inner">
@@ -90,8 +95,8 @@
                             <div class="contest-text">Загрузи фото, придумай креативный текст, вступи в группу и поделись ВКонтакте</div>
                             <div class="contest-preview"></div>
                             <div class="contest-links">
-                                <a href="rules.html" class="contest-link-rules" target="_blank">Правила конкурса</a>
                                 <a href="#" class="contest-link-start">Принять участие</a>
+                                <a href="rules.html" class="contest-link-rules" target="_blank">Правила конкурса</a>
                             </div>
                         </div>
 
@@ -257,7 +262,11 @@
                                 <div class="contest-text-photo">
                                     <img src="images/blank.gif" alt="" width="580" height="580" />
                                 </div>
-                                <div class="contest-text-header"><strong>Придумай</strong> креативный текст<br /> на тему “Путешествия”</div>
+                                <div class="contest-text-header">
+                                    <div class="contest-text-header-wrap">
+                                        <div class="contest-text-header-inner"><strong>Придумай</strong> креативный текст<br /> на тему “<span class="contest-text-header-theme"></span>”</div>
+                                    </div>
+                                </div>
                                 <div class="contest-text-tags">#СелфиЭксперт #МыЛюбимOPPO #ПроявиСебяНастоящего #ХочуOPPOF7</div>
                                 <div class="contest-text-textarea"><textarea name="message" rows="8" cols="10" placeholder=""></textarea></div>
                                 <a href="#" class="contest-text-next">Поделиться вКонтакте</a>
@@ -724,7 +733,7 @@
             <div class="gifts" id="buy">
                 <div class="container">
                     <div class="gifts-title">До старта продаж OPPO F7 осталось</div>
-                    <div class="timer" data-timestamp="2018/04/24 23:59:59">
+                    <div class="timer" data-timestamp="2018/04/25 19:00:00">
                         <div class="timer-item">
                             <div class="timer-item-value">0</div>
                             <div class="timer-item-name">дней</div>
@@ -752,7 +761,7 @@
                     <div class="footer-logo"></div>
 
                     <div class="footer-links">
-                        <p><a href="http://www.oppo.com/ru/" target="_blank">Официальный сайт OPPO Россия</a><br /> <a href="#" target="_blank">Новый OPPO F7 c функцией Artificial Intelligence</a></p>
+                        <p><a href="http://www.oppo.com/ru/index.html?utm_source=hellocampaign" target="_blank">Официальный сайт OPPO Россия</a><br /> <a href="#" target="_blank">Новый OPPO F7 c функцией Artificial Intelligence</a></p>
                         <p><a href="rules.html" target="_blank">Правила проведения и участия в конкурсе</a></p>
                     </div>
 
