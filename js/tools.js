@@ -80,13 +80,7 @@ $(document).ready(function() {
     updateTimer();
 
     $('.contest-link-start').click(function(e) {
-        $('.contest-list').addClass('contest-step-auth');
-        e.preventDefault();
-    });
-
-    $('.contest-auth-link').click(function(e) {
-        // auth to vk
-        $('.contest-list').removeClass('contest-step-auth').addClass('contest-step-theme');
+        $('.contest-list').addClass('contest-step-theme');
         e.preventDefault();
     });
 
@@ -96,7 +90,7 @@ $(document).ready(function() {
             $('.contest-theme-item.active').removeClass('active');
             curItem.addClass('active');
             $('.contest-theme-item-next').addClass('active');
-            $('.contest-theme-item-next-icon img').attr('src', 'images/contest-theme-' + curItem.data('id') + '-icon-active.png');
+            $('.contest-theme-item-next-icon').html(curItem.find('.contest-theme-item-icon').html());
             $('.contest-theme-item-next-theme').html(curItem.find('.contest-theme-item-title').html());
             $('.contest-text-textarea textarea').attr('placeholder', curItem.data('placeholder'));
             $('.contest-text-header-theme').html(curItem.find('.contest-theme-item-title').html());

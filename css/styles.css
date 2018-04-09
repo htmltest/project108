@@ -67,6 +67,7 @@ nav ul li a:hover {opacity:.8}
 .welcome-props {padding:5px 0 0 0}
 .welcome-props::after {content:""; display:block; clear:both}
 .welcome-prop {float:left; width:214px; padding:30px 0 0 0}
+.welcome-prop a {display:block; text-decoration:none}
 .welcome-prop:nth-child(even) {float:right}
 .welcome-prop-icon {float:left; line-height:0}
 .welcome-prop-text {margin:0 0 0 65px}
@@ -91,11 +92,10 @@ nav ul li a:hover {opacity:.8}
 .contest {border-bottom:1px solid #ededed; margin:105px 0 0 0}
 .contest-list {font-size:0; line-height:0; letter-spacing:-1px; width:100%; white-space:nowrap; position:relative; overflow:hidden}
 .contest-list-inner {width:100%; position:relative; left:0; transition:all .3s}
-.contest-step-auth .contest-list-inner {left:-100%}
-.contest-step-theme .contest-list-inner {left:-200%}
-.contest-step-photo .contest-list-inner {left:-300%}
-.contest-step-text .contest-list-inner {left:-400%}
-.contest-step-share .contest-list-inner {left:-500%}
+.contest-step-theme .contest-list-inner {left:-100%}
+.contest-step-photo .contest-list-inner {left:-200%}
+.contest-step-text .contest-list-inner {left:-300%}
+.contest-step-share .contest-list-inner {left:-400%}
 .contest-step {display:inline-block; vertical-align:top; width:100%; font-size:16px; line-height:25px; letter-spacing:0; white-space:normal; position:relative}
 
 @media screen and (max-width:1199px) {
@@ -130,21 +130,8 @@ nav ul li a:hover {opacity:.8}
 
 @media screen and (max-width:1199px) {
     .contest-menu {white-space:nowrap; text-align:left; padding:42px 35px 0 35px}
-    .contest-step-photo .contest-menu {left:-204px}
-    .contest-step-text .contest-menu {left:-404px}
-    .contest-step-share .contest-menu {left:-484px}
-}
-
-.contest-auth {width:359px; height:740px; position:relative; background:url(../images/contest-auth.png); margin:117px auto 0 auto}
-.contest-auth::before {content:""; display:block; width:449px; height:845px; position:absolute; left:-17px; top:0; background:url(../images/contest-auth-shadow.png)}
-.contest-auth-text {position:absolute; left:-392px; top:40px; width:439px; height:213px; padding:53px 0 0 70px; background:url(../images/contest-auth-text.png); color:#505354; font-size:30px; line-height:40px}
-.contest-auth-text strong {color:#363636; font-weight:bold}
-.contest-auth-link {display:block; position:absolute; left:66px; top:440px; width:230px; height:60px; background:#fff; text-decoration:none; text-align:center; font-size:20px; line-height:60px; color:#5281b9}
-.contest-auth-link:hover {opacity:.8}
-
-@media screen and (max-width:1199px) {
-    .contest-auth {margin:111px auto 105px auto}
-    .contest-auth-text {left:-55px; top:-80px; width:349px; height:211px; padding:55px 0 0 75px; background:url(../images/contest-auth-text-mobile.png); font-size:25px; line-height:37px}
+    .contest-step-text .contest-menu {left:-204px}
+    .contest-step-share .contest-menu {left:-404px}
 }
 
 .contest-theme {width:1190px; height:570px; margin:153px auto 0 auto; background:url(../images/contest-theme.png); position:relative}
@@ -157,9 +144,15 @@ nav ul li a:hover {opacity:.8}
 .contest-theme-item:hover {box-shadow:8px 8px 40px rgba(73, 73, 73, .14)}
 .contest-theme-item.active {background:#008859; color:#fff}
 .contest-theme-item-icon {display:inline-block; vertical-align:middle; position:relative; line-height:0; margin:-2px 14px 0 0}
-.contest-theme-item.active .contest-theme-item-icon img:nth-child(1) {opacity:0}
-.contest-theme-item-icon img:nth-child(2) {position:absolute; left:-99999px; top:-99999px}
-.contest-theme-item.active .contest-theme-item-icon img:nth-child(2) {left:0; top:0}
+.contest-theme-item-icon svg {width:22px}
+.contest-theme-item-icon path {stroke:#363636; fill:none}
+.contest-theme-item-icon line {stroke:#363636}
+.contest-theme-item-icon circle {stroke:#363636}
+.contest-theme-item-icon polygon {fill:#363636}
+.contest-theme-item.active .contest-theme-item-icon path {stroke:#fff; fill:none}
+.contest-theme-item.active .contest-theme-item-icon line {stroke:#fff}
+.contest-theme-item.active .contest-theme-item-icon circle {stroke:#fff}
+.contest-theme-item.active .contest-theme-item-icon polygon {fill:#fff}
 .contest-theme-item-title {display:inline-block; vertical-align:middle}
 .contest-theme-item-plus {position:absolute; right:20px; top:29px; height:2px; width:14px; background:#505354}
 .contest-theme-item.active .contest-theme-item-plus {background:#fff; transform:rotate(45deg)}
@@ -180,7 +173,11 @@ nav ul li a:hover {opacity:.8}
 .contest-theme-item-next.active:hover {opacity:.8}
 .contest-theme-item-next-title {display:inline-block; vertical-align:middle; font-size:20px}
 .contest-theme-item-next-icon {display:inline-block; vertical-align:middle; line-height:0; margin:-4px 16px 0 16px}
-.contest-theme-item-next-icon imd {display:block}
+.contest-theme-item-next-icon svg {width:60px}
+.contest-theme-item-next-icon path {stroke:#fff; fill:none}
+.contest-theme-item-next-icon line {stroke:#fff}
+.contest-theme-item-next-icon circle {stroke:#fff}
+.contest-theme-item-next-icon polygon {fill:#fff}
 .contest-theme-item-next-theme {display:inline-block; vertical-align:middle; font-size:40px}
 .contest-theme-item-next-text {position:absolute; right:42px; top:0; padding:0 43px 0 0; font-size:14px; font-weight:bold; text-transform:uppercase; background:url(../images/contest-theme-item-next.png) no-repeat right center; letter-spacing:1px}
 
@@ -189,6 +186,7 @@ nav ul li a:hover {opacity:.8}
     .contest-theme-item-next-title {display:none}
     .contest-theme-item-next-icon {margin-left:0}
     .contest-theme-item-next-theme {font-size:20px}
+    .contest-theme-item-next-icon svg {width:22px}
     .contest-theme-item-next-text {right:0; top:65px; left:0; bottom:0; padding:0; line-height:66px; text-align:center; background:#008859; border-radius:0 0 18px 18px}
     .contest-theme-item-next-text::after {content:""; display:inline-block; vertical-align:middle; width:24px; height:10px; background:url(../images/contest-theme-item-next.png); margin:-2px 0 0 19px}
 }
@@ -271,7 +269,7 @@ nav ul li a:hover {opacity:.8}
     .contest-text-header {left:-35px; top:-74px; width:370px; height:171px; padding:20px 56px 0 30px; background:url(../images/contest-text-header-mobile.png); font-size:25px; line-height:37px}
     .contest-text-header-inner {height:105px; text-align:center; padding:0 25px}
     .contest-text-photo {width:303px; height:177px}
-    .contest-text-photo img {width:303px; top:-126px}
+    .contest-text-photo img {width:303px; top:-126px; height:303px}
     .contest-text-tags {line-height:20px; width:270px}
     .contest-text-textarea {width:270px}
     .contest-text-textarea textarea {font-size:20px; line-height:30px; height:300px}
@@ -374,13 +372,18 @@ nav ul li a:hover {opacity:.8}
     .timer-item-value {font-size:75px; line-height:75px}
 }
 
-.gifts-text {text-align:center; font-size:25px; line-height:30px; color:#363636; padding:60px 0 0 0}
+.gifts-link {text-align:center; padding:57px 0 0 0}
+.gifts-link a {display:inline-block; vertical-align:top; color:#fff; height:36px; text-transform:uppercase; padding:0 25px; font-weight:bold; font-size:14px; letter-spacing:1px; line-height:40px; text-decoration:none; background:#008859}
+.gifts-link a:hover {opacity:.8}
+.gifts-subtitle {text-align:center; font-weight:bold; font-size:32px; line-height:40px; color:#363636; padding:99px 0 0 0}
+.gifts-text {text-align:center; font-size:18px; line-height:24px; color:#363636; padding:10px 0 0 0}
 .gifts-partners {font-size:0; line-height:0; letter-spacing:-1px; text-align:center; padding:54px 0 0 0}
 .gifts-partner {display:inline-block; vertical-align:middle}
 .gifts-partner-sep {display:inline-block; vertical-align:middle; margin:0 50px; width:1px; height:70px; background:#dadada}
 
 @media screen and (max-width:1199px) {
     .gifts-partner-sep {display:block; margin:0; width:auto; height:50px; background:none}
+    .gifts-link a {display:block; padding:0; text-align:center}
 }
 
 .gifts-photo {line-height:0; text-align:center; padding:72px 0 0 0}
