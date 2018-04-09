@@ -170,7 +170,7 @@ nav ul li a:hover {opacity:.8}
     .contest-theme {width:359px; height:740px; position:relative; background:url(../images/contest-theme-mobile.png); margin:111px auto 105px auto}
     .contest-theme::before {content:""; display:block; width:449px; height:845px; position:absolute; left:-17px; top:0; background:url(../images/contest-auth-shadow.png)}
     .contest-theme-text {width:398px; height:137px; left:-35px; top:-81px; background:url(../images/contest-theme-text-mobile.png); font-size:25px; padding:54px 26px 0 0}
-    .contest-theme-list {margin:0; padding:0 0 0 30px; top:74px; position:relative; overflow:auto; height:480px; width:304px; font-size:16px}
+    .contest-theme-list {margin:0; padding:0; top:74px; position:relative; left:30px; overflow:auto; height:480px; width:304px; font-size:16px}
     .contest-theme-item {float:none; margin:0; width:210px}
     .contest-theme-item+.contest-theme-item {margin:10px 0 0 0}
 }
