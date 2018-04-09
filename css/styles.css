@@ -362,7 +362,7 @@ nav ul li a:hover {opacity:.8}
 .gifts {background:#fafafa; position:relative; margin:0 0 -1px 0; padding:112px 0 0 0}
 .gifts-title {text-align:center; font-weight:bold; font-size:32px; line-height:40px; color:#363636}
 
-.timer {text-align:center; font-size:0; line-height:0; letter-spacing:-1px; padding:74px 0 83px 0}
+.timer {text-align:center; font-size:0; line-height:0; letter-spacing:-1px; padding:74px 0 0 0}
 .timer-item {display:inline-block; vertical-align:top; width:170px; padding:0 0 0 30px}
 .timer-item:first-child {padding:0}
 .timer-item-value {font-size:100px; line-height:100px; color:#363636; letter-spacing:0}
@@ -374,7 +374,16 @@ nav ul li a:hover {opacity:.8}
     .timer-item-value {font-size:75px; line-height:75px}
 }
 
-.gifts-photo {line-height:0; text-align:center}
+.gifts-text {text-align:center; font-size:25px; line-height:30px; color:#363636; padding:60px 0 0 0}
+.gifts-partners {font-size:0; line-height:0; letter-spacing:-1px; text-align:center; padding:54px 0 0 0}
+.gifts-partner {display:inline-block; vertical-align:middle}
+.gifts-partner-sep {display:inline-block; vertical-align:middle; margin:0 50px; width:1px; height:70px; background:#dadada}
+
+@media screen and (max-width:1199px) {
+    .gifts-partner-sep {display:block; margin:0; width:auto; height:50px; background:none}
+}
+
+.gifts-photo {line-height:0; text-align:center; padding:72px 0 0 0}
 
 footer {border-top:1px solid #dadada; padding:0 0 58px 0}
 
