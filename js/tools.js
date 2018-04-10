@@ -210,6 +210,21 @@ $(document).ready(function() {
         var curThemeTitle = $('.contest-theme-item.active').find('.contest-theme-item-title').html();
         var curImg = $('.contest-text-photo img').attr('src');
         var curText = $('.contest-text-textarea textarea').val();
+        var dataTransfer = {
+            "themeID": curThemeID,
+            "curThemeTitle": curThemeTitle,
+            "curIMG": curImg,
+            "curText": curText
+        };
+        $.ajax({
+            type: 'POST',
+            url: 'files/canvas.json',
+            dataType: 'json',
+            data: dataTransfer,
+            cache: false
+        }).done(function(data) {
+            console.log(data.p);
+        });
     });
 
     $('.contest-photo-camera-field').click(function() {
