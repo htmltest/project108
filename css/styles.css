@@ -433,5 +433,8 @@ footer {border-top:1px solid #dadada; padding:0 0 58px 0}
 .rules ol ol ol {margin:25px 0; counter-reset:subsubpoint}
 .rules ol ol ol li {padding:0 0 0 60px}
 .rules ol ol ol li::before {content:counter(point)'.'counter(subpoint)'.'counter(subsubpoint); counter-increment:subsubpoint 1}
+.rules ul {margin:0; padding:0; list-style:none; font-size:24px; line-height:25px; color:#363636}
+.rules li ul {font-size:16px; margin:37px 0 53px 0}
+.rules ol ul li::before {content:""; display:block; width:7px; height:7px; background:#505354; border-radius:50%; top:9px; left:0; counter-increment:none}
 .rules a {color:#008859; text-decoration:none}
 .rules a:hover {text-decoration:underline}
