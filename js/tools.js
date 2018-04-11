@@ -123,11 +123,61 @@ $(document).ready(function() {
         $('.contest-list').removeClass('contest-step-photo').addClass('contest-step-theme');
     });
 
+    function getOrientation(file, callback) {
+        var reader = new FileReader;
+        reader.onload = function(e) {
+            var view = new DataView(e.target.result);
+            if (65496 != view.getUint16(0, !1)) return callback(-2);
+            for (var length = view.byteLength, offset = 2; offset < length;) {
+                var marker = view.getUint16(offset, !1);
+                if (offset += 2, 65505 == marker) {
+                    if (1165519206 != view.getUint32(offset += 2, !1)) return callback(-1);
+                    var little = 18761 == view.getUint16(offset += 6, !1);
+                    offset += view.getUint32(offset + 4, little);
+                    var tags = view.getUint16(offset, little);
+                    offset += 2;
+                    for (var i = 0; i < tags; i++)
+                        if (274 == view.getUint16(offset + 12 * i, little)) return callback(view.getUint16(offset + 12 * i + 8, little))
+                } else {
+                    if (65280 != (65280 & marker)) break;
+                    offset += view.getUint16(offset, !1)
+                }
+            }
+            return callback(-1)
+        }, reader.readAsArrayBuffer(file)
+    }
+
     $('.contest-photo-upload-field input').on('change', function(e) {
         var file = this.files[0];
         var reader = new FileReader;
         reader.onload = function(event) {
             if (file.type.match("image.*")) {
+                var exifOrientation = 0;
+                getOrientation(file, function(orientation) {
+                    switch (orientation) {
+                        case 1:
+                            exifOrientation = 0;
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            exifOrientation = -180;
+                            break;
+                        case 4:
+                        case 5:
+                            break;
+                        case 6:
+                            exifOrientation = 90;
+                            break;
+                        case 7:
+                            break;
+                        case 8:
+                            exifOrientation = -90;
+                            break;
+                        default:
+                            exifOrientation = 0
+                    }
+                });
                 var dataUri = event.target.result;
                 var canvas = document.getElementById('photo-editor');
                 var context = canvas.getContext('2d');
@@ -141,18 +191,24 @@ $(document).ready(function() {
                         var imgHeight = img.height;
                         var newWidth  = 580;
                         var newHeight = 580;
-                        var newX = 0;
-                        var newY = 0;
+                        var newX = -290;
+                        var newY = -290;
                         if (imgWidth > imgHeight) {
                             var diffHeight = newHeight / imgHeight;
                             newWidth = imgWidth * diffHeight;
-                            newX = -(newWidth - 580) / 2;
+                            newX = -(newWidth - 580) / 2 - 290;
                         } else {
                             var diffWidth = newWidth / imgWidth;
                             newHeight = imgHeight * diffWidth;
-                            newY = -(newHeight - 580) / 2;
+                            newY = -(newHeight - 580) / 2 - 290;
                         }
+                        var TO_RADIANS = Math.PI/180;
+                        context.save();
+                        context.translate(290, 290);
+                        context.rotate(exifOrientation * TO_RADIANS);
                         context.drawImage(img, newX, newY, newWidth, newHeight);
+                        context.restore();
+                        context.translate(0, 0);
 
                         context.drawImage(imgTheme, 0, 0, 580, 580);
                         $('.contest-photo').addClass('active');
