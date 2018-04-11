@@ -259,7 +259,7 @@ $(document).ready(function() {
     });
 
     $('.contest-text-next').click(function(e) {
-        $('.contest-list').removeClass('contest-step-text').addClass('contest-step-share');
+        $('.contest-list').removeClass('contest-step-text').addClass('contest-step-auth');
         e.preventDefault();
         // data to vk
         var curThemeID = $('.contest-theme-item.active').data('id');
@@ -281,6 +281,16 @@ $(document).ready(function() {
         }).done(function(data) {
             console.log(data.p);
         });
+    });
+
+    $('.contest-menu-back-from-auth').click(function() {
+        $('.contest-list').removeClass('contest-step-auth').addClass('contest-step-text');
+    });
+
+    $('.contest-auth-link').click(function(e) {
+        // auth to vk
+        $('.contest-list').removeClass('contest-step-auth').addClass('contest-step-share');
+        e.preventDefault();
     });
 
     $('.contest-photo-camera-field').click(function() {
