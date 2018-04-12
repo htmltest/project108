@@ -293,6 +293,8 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    var localstream;
+
     $('.contest-photo-camera-field').click(function() {
         $('.contest-photo').addClass('camera');
         window.navigator = window.navigator || {};
@@ -307,6 +309,7 @@ $(document).ready(function() {
                 function(stream) {
                     var video = document.getElementById('camera-stream');
                     video.src = createSrc(stream);
+                    localstream = stream;
                     video.play();
                 },
                 function(err){
@@ -346,6 +349,8 @@ $(document).ready(function() {
             context.drawImage(video, newX, newY, newWidth, newHeight);
             context.drawImage(imgTheme, 0, 0, 580, 580);
             $('.contest-photo').addClass('active').removeClass('camera');
+            video.src = '';
+            localstream.getTracks()[0].stop();
         }
         imgTheme.src = curTheme.data('border');
         e.preventDefault();
