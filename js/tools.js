@@ -123,53 +123,34 @@ $(document).ready(function() {
         $('.contest-list').removeClass('contest-step-photo').addClass('contest-step-theme');
     });
 
-    function getOrientation(file, callback) {
-        var reader = new FileReader;
-        reader.onload = function(e) {
-            var view = new DataView(e.target.result);
-            if (65496 != view.getUint16(0, !1)) return callback(-2);
-            for (var length = view.byteLength, offset = 2; offset < length;) {
-                var marker = view.getUint16(offset, !1);
-                if (offset += 2, 65505 == marker) {
-                    if (1165519206 != view.getUint32(offset += 2, !1)) return callback(-1);
-                    var little = 18761 == view.getUint16(offset += 6, !1);
-                    offset += view.getUint32(offset + 4, little);
-                    var tags = view.getUint16(offset, little);
-                    offset += 2;
-                    for (var i = 0; i < tags; i++)
-                        if (274 == view.getUint16(offset + 12 * i, little)) return callback(view.getUint16(offset + 12 * i + 8, little))
-                } else {
-                    if (65280 != (65280 & marker)) break;
-                    offset += view.getUint16(offset, !1)
-                }
-            }
-            return callback(-1)
-        }, reader.readAsArrayBuffer(file)
-    }
-
     $('.contest-photo-upload-field input').on('change', function(e) {
         var file = this.files[0];
         var reader = new FileReader;
         reader.onload = function(event) {
             if (file.type.match("image.*")) {
                 var exifOrientation = 0;
-                getOrientation(file, function(orientation) {
-                    switch (orientation) {
+                EXIF.getData(file, function () {
+                    switch (this.exifdata.Orientation) {
                         case 1:
                             exifOrientation = 0;
                             break;
                         case 2:
+                            exifOrientation = 0;
                             break;
                         case 3:
-                            exifOrientation = -180;
+                            exifOrientation = 180;
                             break;
                         case 4:
+                            exifOrientation = 180;
+                            break;
                         case 5:
+                            exifOrientation = 90;
                             break;
                         case 6:
                             exifOrientation = 90;
                             break;
                         case 7:
+                            exifOrientation = -90;
                             break;
                         case 8:
                             exifOrientation = -90;
