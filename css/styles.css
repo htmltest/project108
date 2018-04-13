@@ -275,6 +275,7 @@ nav ul li a:hover {opacity:.8}
 .contest-text-next::after {content:""; display:inline-block; vertical-align:middle; width:24px; height:10px; background:url(../images/contest-theme-item-next.png); margin:-2px 0 0 20px}
 .contest-text-next.active {opacity:1; cursor:pointer}
 .contest-text-next.active:hover {opacity:.8}
+.contest-text-mobile {display:none}
 
 @media screen and (max-width:1199px) {
     .contest-text-wrap {width:359px; height:740px; position:relative; background:url(../images/contest-text-mobile.png); margin:111px auto 105px auto}
@@ -285,9 +286,14 @@ nav ul li a:hover {opacity:.8}
     .contest-text-photo {width:303px; height:177px}
     .contest-text-photo img {width:303px; top:-126px; height:303px}
     .contest-text-tags {line-height:20px; width:270px}
-    .contest-text-textarea {width:270px}
-    .contest-text-textarea textarea {font-size:20px; line-height:30px; height:300px}
-    .contest-text-next {left:16px; top:635px; width:327px; line-height:67px; height:67px; border-radius:0 0 18px 18px; font-size:14px}
+    .contest-text-textarea {display:none}
+    .contest-text-next {display:none}
+    .contest-text-mobile {display:block}
+    .contest-text-textarea-mobile {margin:0 auto; width:270px; position:relative; font:20px/30px MyriadPro, sans-serif; height:300px; color:#505354; overflow:auto}
+    .contest-text-next-mobile {display:block; position:absolute; left:16px; top:635px; width:327px; height:67px; opacity:.25; color:#fff; text-decoration:none; background:#008859; text-align:center; font-size:14px; line-height:67px; border-radius:0 0 18px 18px; cursor:default; letter-spacing:1px; text-transform:uppercase; font-weight:bold}
+    .contest-text-next-mobile::after {content:""; display:inline-block; vertical-align:middle; width:24px; height:10px; background:url(../images/contest-theme-item-next.png); margin:-2px 0 0 20px}
+    .contest-text-next-mobile.active {opacity:1; cursor:pointer}
+    .contest-text-next-mobile.active:hover {opacity:.8}
 }
 
 .contest-share {text-align:center}

@@ -93,6 +93,7 @@ $(document).ready(function() {
             $('.contest-theme-item-next-icon').html(curItem.find('.contest-theme-item-icon').html());
             $('.contest-theme-item-next-theme').html(curItem.find('.contest-theme-item-title').html());
             $('.contest-text-textarea textarea').attr('placeholder', curItem.data('placeholder'));
+            $('.contest-text-textarea-mobile').html(curItem.data('placeholder'));
             $('.contest-text-header-theme').html(curItem.find('.contest-theme-item-title').html());
             var canvas = document.getElementById('photo-editor');
             var context = canvas.getContext('2d');
@@ -239,29 +240,34 @@ $(document).ready(function() {
         }
     });
 
-    $('.contest-text-next').click(function(e) {
-        $('.contest-list').removeClass('contest-step-text').addClass('contest-step-auth');
+    $('.contest-text-next, .contest-text-next-mobile').click(function(e) {
+        if ($(this).hasClass('active')) {
+            $('.contest-list').removeClass('contest-step-text').addClass('contest-step-auth');
+            // data to vk
+            var curThemeID = $('.contest-theme-item.active').data('id');
+            var curThemeTitle = $('.contest-theme-item.active').find('.contest-theme-item-title').html();
+            var curImg = $('.contest-text-photo img').attr('src');
+            var curText = $('.contest-text-textarea textarea').val();
+            if (curText == '') {
+                curText = $('.contest-text-textarea textarea').attr('placeholder');
+            }
+            var dataTransfer = {
+                "themeID": curThemeID,
+                "curThemeTitle": curThemeTitle,
+                "curIMG": curImg,
+                "curText": curText
+            };
+            $.ajax({
+                type: 'POST',
+                url: 'files/canvas.json',
+                dataType: 'json',
+                data: dataTransfer,
+                cache: false
+            }).done(function(data) {
+                console.log(data.p);
+            });
+        }
         e.preventDefault();
-        // data to vk
-        var curThemeID = $('.contest-theme-item.active').data('id');
-        var curThemeTitle = $('.contest-theme-item.active').find('.contest-theme-item-title').html();
-        var curImg = $('.contest-text-photo img').attr('src');
-        var curText = $('.contest-text-textarea textarea').val();
-        var dataTransfer = {
-            "themeID": curThemeID,
-            "curThemeTitle": curThemeTitle,
-            "curIMG": curImg,
-            "curText": curText
-        };
-        $.ajax({
-            type: 'POST',
-            url: 'files/canvas.json',
-            dataType: 'json',
-            data: dataTransfer,
-            cache: false
-        }).done(function(data) {
-            console.log(data.p);
-        });
     });
 
     $('.contest-menu-back-from-auth').click(function() {
