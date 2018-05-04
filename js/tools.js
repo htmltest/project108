@@ -63,6 +63,55 @@ $(document).ready(function() {
         $('.reviews-authors-item').eq(curIndex).addClass('active');
     });
 
+    startIndex = Math.floor($('.it-authors-item').length / 2);
+    $('.it-authors-item:first').addClass('active');
+    $('.it-authors-list').slick({
+        dots: false,
+        infinite: false,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
+        arrows: false,
+        initialSlide: startIndex
+    });
+
+    $('.it-authors-item a').click(function(e) {
+        var curItem = $(this).parent();
+        if (!curItem.hasClass('active')) {
+            var curIndex = $('.it-authors-item').index(curItem);
+            if ($('.it-authors-list').hasClass('slick-slider')) {
+                $('.it-authors-list').slick('slickGoTo', curIndex);
+                $('.it-list').slick('slickGoTo', curIndex);
+            }
+            $('.it-authors-item.active').removeClass('active');
+            curItem.addClass('active');
+        }
+        e.preventDefault();
+    });
+
+    $('.it-list').slick({
+        dots: false,
+        infinite: false,
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        prevArrow: '<button type="button" class="slick-prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"></button>',
+        asNavFor: '.it-authors-list',
+        initialSlide: startIndex,
+        responsive: [
+            {
+                breakpoint: 1199,
+                settings: {
+                    arrows: false
+                }
+            }
+        ]
+    }).on('setPosition', function(event, slick) {
+        var curIndex = $('.it-list').slick('slickCurrentSlide');
+        $('.it-authors-item.active').removeClass('active');
+        $('.it-authors-item').eq(curIndex).addClass('active');
+    });
+
     $('.video-play').click(function(e) {
         $('.video').addClass('play');
         player.playVideo();

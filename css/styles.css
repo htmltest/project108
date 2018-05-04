@@ -363,6 +363,49 @@ nav ul li a:hover {opacity:.8}
     .reviews-item-text {display:block; padding:61px 35px 0 35px}
 }
 
+.it {padding:112px 0 113px 0; position:relative; border-top:1px solid #ededed}
+.it::before {content:""; display:block; width:221px; height:186px; position:absolute; left:50%; top:-38px; margin-left:110px; background:url(../images/reviews.png)}
+.it-title {text-align:center; font-weight:bold; font-size:32px; line-height:40px; color:#363636}
+.it-authors {font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:55px 0 0 0}
+.it-authors-list {position:relative; width:100%; overflow:hidden}
+.it-authors-item {display:inline-block; vertical-align:top; padding:15px 0}
+.it-authors-item a {display:block; margin:0 3px; padding:15px 22px; text-decoration:none; color:#262626; text-decoration:none; opacity:.25}
+.it-authors-item a::after {content:""; display:block; clear:both}
+.it-authors-item a:hover {opacity:1}
+.it-authors-item.active a {opacity:1; background:#fff; box-shadow:0 5px 15px rgba(73, 73, 73, .12); position:relative; cursor:default}
+.it-authors-item.active a::before {content:""; display:block; width:0; height:0; border-top:7px solid #fff; border-left:7px solid transparent; border-right:7px solid transparent; position:absolute; left:50%; bottom:-7px; margin-left:-7px}
+.it-authors-item-photo {float:left; width:40px}
+.it-authors-item-photo img {display:block; width:100%; border-radius:50%}
+
+@media screen and (max-width:1199px) {
+    .it {padding:96px 0 113px 0}
+    .it::before {width:178px; height:149px; top:-50px; margin-left:93px; background:url(../images/reviews-mobile.png)}
+}
+
+.it-list {position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:53px 0 0 0}
+.it-item {display:inline-block; vertical-align:top; width:100%}
+.it-item-inner {max-width:450px; margin:0 auto; font-size:16px; line-height:25px; letter-spacing:0; white-space:normal}
+.it-item-text-descr {position:relative}
+.it-item-text-descr::before {content:"“"; position:absolute; left:-35px; top:-10px; font-size:72px; line-height:72px; color:#ededed}
+.it-item-text-descr::after {content:"”"; position:absolute; right:-30px; bottom:-54px; font-size:72px; line-height:72px; color:#ededed}
+.it-item-text-descr a {text-decoration:none; color:#008859}
+.it-item-text-descr a:hover {text-decoration:underline}
+.it-item-text-photo {line-height:0; padding:28px 0 0 0}
+.it-item-text-author-name {font-size:25px; line-height:25px; color:#363636; padding:13px 0 0 0}
+.it-item-text-author-post {font-size:16px; line-height:25px; color:#363636; padding:3px 0 0 0}
+.it-item-text-author-post a {text-decoration:none; color:#008859}
+.it-item-text-author-post a:hover {text-decoration:underline}
+.it-list .slick-prev,
+.it-list .slick-next {display:block; position:absolute; z-index:2; top:50%; width:21px; height:39px; border:none; border-radius:0; margin:-20px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:url(../images/reviews-arrows.png)}
+.it-list .slick-prev {left:0}
+.it-list .slick-next {right:0; background-position:-22px top}
+.it-list .slick-prev.slick-disabled {display:none !important}
+.it-list .slick-next.slick-disabled {display:none !important}
+
+@media screen and (max-width:1199px) {
+    .it-item-inner {width:100%; display:block; position:relative; overflow:hidden}
+}
+
 .video {position:relative; background:url(../images/video.jpg) no-repeat center; background-size:cover; height:720px}
 .video-play {display:block; position:relative; color:#fff; text-decoration:none; text-align:center; font-weight:bold; font-size:32px; line-height:40px; height:720px; box-sizing:border-box; padding:309px 0 0 0}
 .video.play .video-play {display:none}
