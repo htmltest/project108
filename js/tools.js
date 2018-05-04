@@ -89,6 +89,35 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $(window).on('load resize', function() {
+        var curHeight = 0;
+        $('.it-item-text-descr-wrap').css({'min-height': 0});
+        $('.it-item-text-descr-wrap').each(function() {
+            if (curHeight < $(this).height()) {
+                curHeight = $(this).height();
+            }
+        });
+        $('.it-item-text-descr-wrap').css({'min-height': curHeight});
+
+        curHeight = 0;
+        $('.it-item-text-author-name').css({'min-height': 0});
+        $('.it-item-text-author-name').each(function() {
+            if (curHeight < $(this).height()) {
+                curHeight = $(this).height();
+            }
+        });
+        $('.it-item-text-author-name').css({'min-height': curHeight});
+
+        curHeight = 0;
+        $('.it-item-text-author-post').css({'min-height': 0});
+        $('.it-item-text-author-post').each(function() {
+            if (curHeight < $(this).height()) {
+                curHeight = $(this).height();
+            }
+        });
+        $('.it-item-text-author-post').css({'min-height': curHeight});
+    });
+
     $('.it-list').slick({
         dots: false,
         infinite: false,
